@@ -2,25 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOC - Live Stream Monitor</title>
+    <title>NOC Manifest Monitor</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>NOC - Live Stream Monitor</h1>
-        <table id="monitorTable">
+        <h1>NOC Manifest Monitor</h1>
+        <div class="input-container">
+            <label for="manifestUrl">Enter Manifest URL:</label>
+            <input type="text" id="manifestUrl" placeholder="Enter HLS or MPD manifest URL">
+            <button onclick="startMonitoring()">Start Monitoring</button>
+        </div>
+        <table id="segmentTable">
             <thead>
                 <tr>
-                    <th>Segment URL</th>
-                    <th>Duration (s)</th>
-                    <th>Load Time (s)</th>
-                    <th>Status</th>
+                    <th>URL</th>
+                    <th>Duration</th>
+                    <th>Load Time</th>
+                    <th>Delayed</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                <!-- Rows will be dynamically inserted here -->
+            </tbody>
         </table>
+        <canvas id="loadTimeChart" width="400" height="200"></canvas>
     </div>
     <script src="js/scripts.js"></script>
 </body>
